@@ -1,0 +1,18 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Windows SDK
+      uses: Lamparter/Install-WindowsSdk@latest
+      with:
+        buildNumber: '19041'
+    - name: Build project
+      run: |
+        # Commands to build your project
